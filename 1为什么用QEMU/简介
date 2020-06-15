@@ -1,0 +1,4 @@
+1，QEMU是一个模拟器，可以模拟CPU，ARM，X86，MIPS
+2，可以仿真ARM处理器：ARM926E。ARM1136,Cortex-A8/A9
+3，模拟真实的开发环境，外设：串口，LCD，网卡，USB，SD卡
+
