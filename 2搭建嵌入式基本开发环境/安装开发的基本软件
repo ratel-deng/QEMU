@@ -1,0 +1,17 @@
+安装uboot-tools
+	工具介绍：用来生成适应U-boot引导的镜像文件格式
+	apt install u-boot-tools
+安装git
+	apt install git
+	git(项目管理，学习利器)
+	常用命令：git init,git add,git commit,git log,git clone,git pull,git push等
+安装vim
+	apt install vim
+安装tree
+	查看目录结构
+	apt install tree
+安装交叉编译工具
+	apt install gcc-arm-linux-gnueabi
+	apt install g++-arm-linux-gnueabi
+
+readelf -h file 查看文件格式

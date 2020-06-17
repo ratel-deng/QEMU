@@ -1,0 +1,14 @@
+（1）什么是软件源
+	ubuntu采用集中式的软件仓库管理机制，将软件包分类存在软件仓库中，进行管理。软件
+仓库放置在各种镜像服务器中，对于用户来说，当使用apt install安装软件包时，会从这些服务
+器下载软件包，这些镜像服务器就是软件源。
+（2）工作原理
+	1，执行apt update，程序分析/etc/apt/source.list
+	2，自动联网寻找list中对应的packages/soures/Releas列表文件，如果有则重新下载，存入/var/lib/apt/lists/目录
+	3，然后apt install相应的包，下载到本地并进行安装
+（3）经常涉及到的目录
+	1，/var/lib/dpkg/available：软件包的描述信息，软件源中所有软件包的信息，包括安装和未安装的软件包
+	2，/var/cache/apt/archives：当apt install安装时软件包的临时存放路径
+	3，/etc/apt/sources.list 文件里是软件源站点apt install时，ubuntu会从这些站点下载软件包到本地并进行安装
+	4，/var/lib/apt/lists 使用apt update命令会从/etc/apt/sources.list中下载软件包列表索引，并保存到该目录
+

@@ -1,0 +1,30 @@
+1，在官网上下载Vmware，在网上搜索注册码，完成注册
+Vmware官网网址：https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html
+2，在Ubuntu官网上下载ubuntu16.04
+Ubuntu各个版本下载地址：http://old-releases.ubuntu.com/releases/
+3，搭建虚拟机
+	（1）
+	内存配置：1G
+	网络配置：NAT，这个可以在建好虚拟机以后改，如果主机在笔记本上连的wife可以使用桥接模式
+	硬盘配置：20G
+	仔细阅读选项，按照网上的步骤一步步安装
+	（2）
+	做完系统安装以后，开始对ubuntu进行初始化配置
+	1，设置root密码，sudo passwd root
+	2，将语言设置为中文，看个人喜好
+	3，调整终端字体和终端大小，在打开终端后的菜单栏里的编辑->配置文件首选项
+	4，安装Vmware-tools，可以和主机相互拷贝文件
+	5，安装vim，apt install vim，配置vim，拷贝脚本，安装插件
+	6，更新源，推荐清华源
+	7，更改~/.bashrc的用户名主机名显示，让终端好看些
+	6，设置中文输入法
+	具体操作步骤不列出，网上自行查找
+
+ubuntu桌面快捷键
+	Alt	搜索
+	Alt+Tab	切换终端与桌面
+	Ctrl+Shift+t 在打开的终端里打开一个新的终端页，Atl+1切换到终端1
+	Ctrl+Alt+t 打开一个新的终端
+
+
+
