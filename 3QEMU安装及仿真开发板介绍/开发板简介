@@ -1,0 +1,31 @@
+ARM express开发板简介
+vexpress系列开发板
+1，全称versatile express family ARM公司自己推出的开发板
+2，主要用于SOC厂商设计，验证和测试自己的SOC芯片
+3，采用主板加子板设计，主板提供各种外围接口，子板提供CPU运算
+
+Vexpress系列支持的CPU
+1，Cortex-A9：处理器子板Express A9x4(V2p-CA9x4)
+2，Cortex-A5：处理器子板Express A5x2(V2p-CA5x2S)
+3，Cortex-R5
+4，Cortex-A15：处理器子板Express A15x2(V2p-CA15x2) 
+
+开发板基本配置
+1，最小系统的概念
+	CPU	DDR/SDRAM	Flash	串口	LCD
+2，基本配置
+	内存	CPU	串口
+
+启动命令:
+	qemu-system-arm -M vexpress-a9
+			选择那一款开发板
+			-m 512M
+			指定内存大小
+			-kernel ./zImage
+			指定运行哪一个镜像
+			-dtb ./vexpress-v2p-ca9.dtb
+			通过dtb文件传参，设备等
+			-nographic
+			不使用图形化启动
+			-append "console=ttyAMA0"
+			指定串口控制台

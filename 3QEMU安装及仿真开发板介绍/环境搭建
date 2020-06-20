@@ -1,0 +1,30 @@
+环境：Ubuntu16.04-32bit
+自动安装：apt install qemu （版本较老）
+手动编译安装：
+	首先安装QEMU编译依赖的包
+	apt install zlib1g-dev
+	apt install libglib2.0-0
+	apt install libglib2.0-dev
+	apt install libsdl1.2-dev
+	apt install libpixman-1-dev
+	apt install libfdt-dev
+下载QEMU源码：
+	git clone git://git.qemu-project.org/qemu.git
+	可以获得较新的安装包，浏览整个软件的开发流程，可以切换到各个版本
+	git checkout v2.7.0
+	检出v2.7.0标签到工作区(不大推荐)
+	git checkout -b local_name remotes/origin/stable-2.7
+	建一个稳定分支，基于远程分支(推荐)
+编译配置：
+	./configure --target-list=arm-softmmu --audio-drv-list=
+编译安装：
+	make
+	make install
+
+qemu-system-arm --version
+查看qemu的版本信息
+qemu-system-arm -M help
+查看支持的开发板
+
+主要学习 vexpress -a9 ARM versatile Express for Cortex-A15 开发板
+
