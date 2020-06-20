@@ -1,0 +1,19 @@
+新建脚本封装命令：qemu-system-arm
+#!/bin/bash
+qemu-system-arm \
+	-M vexpress-a9 \
+	选择那一款开发板
+	-m 512M \
+	指定内存大小
+	-kernel linux-4.4.176/arch/arm/boot/zImage \
+	指定运行哪一个镜像
+	-dtb linux-4.4.176/arch/arm/boot/dts/vexpress-v2p-ca9.dtb \
+	通过dtb文件传参，设备等
+	-nographic \
+	不使用图形化启动
+	-append "console=ttyAMA0"
+	指定串口控制台
+
+关闭方法：
+	在软件外关闭：新打开一个控制台，ps -a找到qemu进程，用kill PID杀死该进程
+	在软件内关闭：Ctrl+a 再按x

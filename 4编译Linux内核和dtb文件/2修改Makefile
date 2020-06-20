@@ -1,0 +1,5 @@
+进入linux内核顶层目录
+	vi Makefile
+	搜索 /CROSS_COMPILE 交叉编译配置
+	修改：ARCH ?= arm
+	      CROSS_COMPILE ?= arm-linux-gnueabi-

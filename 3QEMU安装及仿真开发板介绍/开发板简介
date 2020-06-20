@@ -17,15 +17,15 @@ Vexpress系列支持的CPU
 	内存	CPU	串口
 
 启动命令:
-	qemu-system-arm -M vexpress-a9
+	qemu-system-arm -M vexpress-a9 \
 			选择那一款开发板
-			-m 512M
+			-m 512M \
 			指定内存大小
-			-kernel ./zImage
+			-kernel ./zImage \
 			指定运行哪一个镜像
-			-dtb ./vexpress-v2p-ca9.dtb
+			-dtb ./vexpress-v2p-ca9.dtb \
 			通过dtb文件传参，设备等
-			-nographic
+			-nographic \
 			不使用图形化启动
 			-append "console=ttyAMA0"
 			指定串口控制台

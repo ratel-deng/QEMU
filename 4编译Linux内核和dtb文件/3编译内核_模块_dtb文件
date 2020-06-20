@@ -1,0 +1,17 @@
+linux-4.4.176/arch/目录下是该内核支持的CPU架构目录
+linux-4.4.176/arch/arm/目录下是arm32位支持的开发板
+linux-4.4.176/arch/arm/configs/目录下是针对不同的开发板linux内核配置的文件，保存各种设置。文件里变量等号后的y表示编译进内核
+
+配置开发板：
+在linux内核根目录下执行对应的开发板配置
+	make vexpress_defconfig
+	基于开发板编译内核
+	编译好的配置文件保存在linux-4.4.176/.config/目录
+	make zImage -j4
+	四线程编译适合该镜像的文件
+	编译好的文件保存在linux-4.4176/arch/arm/boot/zImage下
+	make modules -j4
+	编译内核模块
+	make dtbs
+	不同的芯片，开发板生成不同的dtb文件，使混乱变的有序
+
