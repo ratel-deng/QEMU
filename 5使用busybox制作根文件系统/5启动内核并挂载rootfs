@@ -1,0 +1,16 @@
+#!/bin/bash
+qemu-system-arm \
+    -M vexpress-a9 \
+    -m 512M \
+    -kernel linux-4.4.176/arch/arm/boot/zImage \
+    -dtb linux-4.4.176/arch/arm/boot/dts/vexpress-v2p-ca9.dtb \
+    -nographic \
+    -append "root=/dev/mmcblk0 rw console=ttyAMA0" \
+    -sd rootfs.ext3
+
+    -append "root=/dev/mmcblk0 rw console=ttyAMA0" \
+    根文件系统挂载在SD卡/dev/mmcblk0这个节点 rw可读写
+    -sd rootfs.ext3
+    挂载的镜像
+
+对于图形化启动，有些问题，以后解决

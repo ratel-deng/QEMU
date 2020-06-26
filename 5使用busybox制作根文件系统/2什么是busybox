@@ -1,0 +1,22 @@
+一个集成100多个Linux常用命令的工具的软件
+一个适合制作嵌入式文件系统的软件工具
+
+编译安装
+下载源代码：https://busybox.net/downloads/busybox-1.26.2.tar.bz2
+修改makefile：ARCH = arm
+	      CROSS_COMPILE = arm-linux-gnueabi-
+配置：make defconfig
+      make menuconfig	图形化配置
+      图形化配置需要 apt install aptitude
+      		     aptitude install libncurses5-dev
+      进入图形化界面后，
+      找到Busybox Settings，回车
+      找到--Build Options，回车
+      找到Build BusyBox as a static binary (no shared libs)，按y选中
+      按Esc退出
+
+编译：make
+安装：make install
+
+安装好之后，在_install目录下会生成bin/ sbin/ usr/ linuxrc文件
+bin/ sbin/ usr/都是一些命令和链接，linuxrc是一个启动脚本
