@@ -10,7 +10,7 @@ dd if=/dev/zero of=rootfs.ext3 bs=1M count=32
 	可以把rootfs.ext3看作SD卡
 3，将/home/rootfs/*文件拷贝到文件系统镜像中
 	首先挂载SD卡镜像
-	mount -t ext3 rootfs.exts /mnt/ -o loop
+	mount -t ext3 rootfs.ext3 /mnt/ -o loop
 	-t ext3 文件系统格式
 	rootfs.exts 镜像名
 	/mnt/ 挂载目录
