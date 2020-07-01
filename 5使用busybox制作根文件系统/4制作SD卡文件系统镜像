@@ -1,5 +1,5 @@
 1，生成镜像命令，生成根文件系统的镜像
-dd if=/dev/zer of=rootfs.ext3 bs=1M count=32
+dd if=/dev/zer0 of=rootfs.ext3 bs=1M count=32
 	if=/dev/zer 输入
 	of=rootfs.ext3 输出
 	bs=1M 缓冲区大小
