@@ -1,0 +1,17 @@
+启动测试脚本
+#!/bin/bash
+qemu-system-arm \
+    -M vexpress-a9 \
+    -m 512M \
+    -kernel u-boot \
+    -nographic \
+    -net nic -net tap,ifname=tap0 \
+    -sd /home/rootfs.ext3
+在/home/tftpboot目录下应有：
+	/home/linux-4.4.176/arch/arm/boot/uImage	内核镜像
+	boot_uboot.sh					启动测试脚本
+	/home/u-boot-2017.05/u-boot			u-boot引导程序
+	/home/linux-4.4.176/arch/arm/boot/dts/vexpress-v2p-ca9.dtb	dtb文件
+测试运行：
+	./boot_uboot.sh
+

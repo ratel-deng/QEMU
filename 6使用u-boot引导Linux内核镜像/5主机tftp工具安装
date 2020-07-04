@@ -1,0 +1,14 @@
+安装tftp工具：
+	apt install tftp-hpa
+	apt install tftpd-hpa
+	apt install xinetd
+修改配置文件：vi /etc/default/tftpd-hpa
+	TFTP_USERNAME="tftp"
+	TFTP_DIRECTORY="/home/tftpboot"
+	TFTP_ADDRESS="0.0.0.0:69"
+	TFTP_OPTIONS="-l -c -s"
+创建目录并给予权限：
+	mkdir -p /home/tftpboot
+	chmod 777 /home/tftpboot
+重启tftp服务：
+	/etc/default/tftpd-hpa restart

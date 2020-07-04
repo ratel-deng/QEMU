@@ -1,0 +1,22 @@
+u-boot功能：类似与windows的BIOS
+
+编译u-boot
+下载：
+	https://ftp.denx.de/pub/u-boot/
+	各个版本都有，在ubuntu16.04下推荐17年的版本
+修改Makefile：
+	CROSS_COMPILE ?= arm-linux-gnueabi-
+修改config.mk：
+	ARCH := arm
+配置：在u-boot顶层目录执行
+	export CROSS_COMPILE=arm-linux-gnueabi-
+	export ARCH=arm
+编译：
+	make vexpress_ca9x4_defconfig
+	make -j4
+测试：
+	qemu-system-arm -M vexpress_a9 \
+			-kernel u-boot \
+			-nographic \
+			-m 512M
+	

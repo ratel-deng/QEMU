@@ -1,0 +1,36 @@
+配置QEMU与主机的网络链接
+	采用桥接的方式与HOST通信
+	主机内核tun/tap支持
+
+配置桥接：
+主机安装包：
+	apt install uml-utilities
+	apt install bridge-utils
+查看tun设备：
+	ls /dev/net/tun
+修改桥接配置文件：vi /etc/network/interfaces
+	auto lo
+	iface lo inet loopback
+	#auto ens33
+	#auto br0
+	#iface br0 inet dhcp
+	#bridge_ports ens33
+	不用该引导时将后四句注释，不注释时关机或者开机会提示一个net错误，并不影响使用
+	ens33是本地网口，br0是桥接网口
+
+配置qemu网络脚本：
+	vi /etc/qemu-ifup
+	#!/bin/sh
+	switch=br0
+	ifconfig $1 up
+	#ip link set $1 up
+	brctl addif ${switch} $1
+
+	vi /etc/qemu-ifdown
+	#!/bin/sh
+	switch=br0
+	brctl delif ${switch} $1
+	当没有这两个文件时则新建，并给可执行权限
+	chmod +x /etc/qemu-ifup
+	chmod +x /etc/qemu-ifdown
+	当有这两个文件时，在脚本结尾加上这些语句除了#!/bin/sh

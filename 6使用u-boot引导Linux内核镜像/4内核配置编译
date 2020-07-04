@@ -1,0 +1,7 @@
+使用u-boot引导内核镜像，需要uImage的镜像
+	需要将内核编译成uImage格式
+	需要指定uImage加载地址
+
+在Linux内核下编译：
+	make LOADADDR=0x60003000 uImage -j4
+	生成文件：arch/arm/boot/uImage

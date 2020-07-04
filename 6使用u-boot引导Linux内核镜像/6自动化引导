@@ -1,0 +1,21 @@
+修改u-boot头文件include/configs/vexpress_common.h
+/*#define CONFIG_BOOTCOMMAND \
+	"run distro_bootcmd; " \
+	"run bootflash; "
+*/
+#define CONFIG_BOOTCOMMAND \
+	"tftp 0x60003000 uImage;tftp 0x60500000 vexpress-v2p-ca9.dtb; \
+	setenv bootargs 'root=/dev/mmcblk0 console=ttyAMA0'; \
+	bootm 0x60003000 - 0x60500000; "
+
+#define CONFIG_IPADDR 192.168.43.51	为开发板分配的IP
+#define CONFIG_NETMASK 255.255.255.0	主机mask
+#define CONFIG_SERVERIP 192.168.43.52	主机IP
+重新编译：
+	make clean
+	按照第二步重新编译
+手动安装：
+	cp tools/mkimage /usr/local/bin/
+	在u-boot目录下
+
+

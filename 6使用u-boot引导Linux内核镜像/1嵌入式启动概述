@@ -1,0 +1,7 @@
+嵌入式boot loader
+(1)功能类似与PC的BIOS，硬件检测是否正常
+(2)加载操作系统镜像到RAM
+(3)设置不同的启动方式：常见的启动方式
+	1,NOR/NAND flash启动
+	2,从SD卡启动
+	3,BOOTloder从网络加载Linux内核启动
