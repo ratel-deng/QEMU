@@ -1,0 +1,45 @@
+介绍：
+	NFS是一种网络文件系统，主机与开发板共享的文件目录
+
+主机HOST支持NFS服务
+安装：apt install nfs-kernel-server
+配置NFS：vi /etc/exports
+	添加 /home/rootfs *(rw,sync,no_root_squash,no_subtree_check)
+开启NFS：/etc/init.d/rpcbind restart
+	 /etc/init.d/nfs-kernel-server restart
+
+修改bootargs参数
+vi u-boot-2017.05/include/configs/vexpress_common.h
+修改宏如下：
+#define CONFIG_BOOTCOMMAND \
+	"tftp 0x60003000 uImage;tftp 0x60500000 vexpress-v2p-ca9.dtb; \
+	setenv bootargs 'root=/dev/nfs rw \
+	nfsroot=主机IP:/home/rootfs init=/linuxrc \
+	ip=192.168.0.100 console=ttyAMA0'; \
+	bootm 0x60003000 - 0x60500000; "
+
+#define CONFIG_IPADDR 开发板IP
+#define CONFIG_NETMASK 主机mask
+#define CONFIG_SERVERIP 主机IP
+在u-boot根目录下编译：
+	export CROSS_COMPILE=arm-linux-gnueabi-
+	export ARCH=arm
+	make vexpress_ca9x4_defconfig
+	make -j4
+
+内核支持挂载NFS文件系统，生成支持NFS文件系统的uImage
+配置：
+	make menuconfig
+	File systems -->
+	  [*]Network File Systems -->
+	  选上<*>NFS client support
+	      <*>NFS client support for NFS version 2
+	      <*>NFS client support for NFS version 3
+	      [*]NFS client support for the NFSv3 ACL Protocol extension
+	      [*]Root file system on NFS
+	按Esc键退出
+make LOADADDR=0x60003000 uImage -j4
+生成文件uImage
+	cp arch/arm/boot/uImage /home/tftpboots
+
+在tftpboots下运行./boot_uboot.sh

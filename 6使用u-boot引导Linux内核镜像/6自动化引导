@@ -8,9 +8,9 @@
 	setenv bootargs 'root=/dev/mmcblk0 console=ttyAMA0'; \
 	bootm 0x60003000 - 0x60500000; "
 
-#define CONFIG_IPADDR 192.168.43.51	为开发板分配的IP
-#define CONFIG_NETMASK 255.255.255.0	主机mask
-#define CONFIG_SERVERIP 192.168.43.52	主机IP
+#define CONFIG_IPADDR 开发板分配的IP
+#define CONFIG_NETMASK 主机mask
+#define CONFIG_SERVERIP 主机IP
 重新编译：
 	make clean
 	按照第二步重新编译
