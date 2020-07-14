@@ -14,7 +14,8 @@ vi u-boot-2017.05/include/configs/vexpress_common.h
 #define CONFIG_BOOTCOMMAND \
 	"tftp 0x60003000 uImage;tftp 0x60500000 vexpress-v2p-ca9.dtb; \
 	setenv bootargs 'root=/dev/nfs rw \
-	nfsroot=主机IP:/home/rootfs init=/linuxrc \
+	nfsroot=主机IP:/home/rootfs init=/linuxrc \ ubuntu16.04
+	nfsroot=主机IP:/home/rootfs,v3 init=/linuxrc \ ubuntu18.04
 	ip=192.168.0.100 console=ttyAMA0'; \
 	bootm 0x60003000 - 0x60500000; "
 
