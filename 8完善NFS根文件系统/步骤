@@ -1,0 +1,13 @@
+(1)新建etc目录
+添加4个文件：inittab、init.d/rcS、fstab、profile
+inittab：首先执行init.d/rcS
+	 启动控制台，profile文件，shell解析器
+init.d/rcS：定义环境变量，挂载各种文件系统，打印信息
+fstab：将文件系统挂载到根文件系统目录下
+	(/tmp /sys /var /proc)
+profile：命令行显示格式(PS1变量)
+
+(2)新建(/tmp /sys /var /proc)目录
+mkdir -p tmp sys var proc
+
+(3)启动Linux，挂载根文件系统

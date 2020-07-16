@@ -1,0 +1,2 @@
+(1)Linux内核启动之后，挂载NFS根文件系统
+(2)init进程bootargs init=/linuxrc 启动第一个用户进程。在这个用户进程中，读取inittab
