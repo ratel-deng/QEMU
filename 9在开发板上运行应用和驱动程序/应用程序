@@ -1,0 +1,5 @@
+新建main.c文件，打印hello world!
+在主机上编译main.c
+arm-linux-gnueabi-gcc main.c
+将生成的.out文件拷贝到rootfs文件夹
+打开QEMU运行.out文件

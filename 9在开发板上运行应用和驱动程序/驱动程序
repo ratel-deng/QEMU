@@ -1,0 +1,4 @@
+新建hello.c Makefile 具体程序以后学到才能看懂
+编译驱动 make
+加载驱动 insmod hello.ko
+删除驱动 rmmod hello
