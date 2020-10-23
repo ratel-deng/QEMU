@@ -1,0 +1,2 @@
+PS1='rick@ub:\w #'
+export PS1

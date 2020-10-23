@@ -1,0 +1,13 @@
+#! /bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+LD_LIBRARY_PATH=/lib
+export PATH LD_LIBRARY_PATH
+mount -a
+mkdir -p /dev/pts
+mount -t devpts devpts /dev/pts
+mdev -s
+mkdir -p /var/lock
+echo -e "\e[1;34m‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐ \e[0m"
+echo -e "\e[1;32m      hello Rick \e[0m"
+echo -e "\e[1;32m      Welcome to A9 vexpress board! \e[0m"
+echo -e "\e[1;34m‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐ \e[0m"
